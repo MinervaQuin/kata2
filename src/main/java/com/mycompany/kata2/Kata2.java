@@ -5,6 +5,9 @@
 
 package com.mycompany.kata2;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author Minerva
@@ -12,6 +15,25 @@ package com.mycompany.kata2;
 public class Kata2 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        int data[]={2,3,5,11,2,5,6,7,32,-4,3,5,6,1,2,3,2,5};
+        Map<Integer, Integer> histogram= new HashMap<>();
+        
+        
+        
+        for (int i = 0; i < data.length; i++) {
+
+
+            if (histogram.keySet().contains(data[i] )){
+                histogram.put(data[i], histogram.get(data[i]) +1);                
+            }else{
+                histogram.put(data[i],1);
+            }
+
+        }
+        
+        for (Map.Entry<Integer, Integer> entry : histogram.entrySet()) {
+            System.out.println(entry.getKey() + "==>" + entry.getValue());
+        }
+
     }
 }
